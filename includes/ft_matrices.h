@@ -6,7 +6,7 @@
 /*   By: olaurent <olaurent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/13 15:13:18 by olaurent          #+#    #+#             */
-/*   Updated: 2016/11/30 19:12:35 by olaurent         ###   ########.fr       */
+/*   Updated: 2016/11/30 19:29:37 by olaurent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,19 @@ t_mat				*ft_matsubm(t_mat *m, int l, int c, t_mat *dest);
 double				ft_matdet(t_mat *m);
 t_vec				*ft_matvec(t_mat *m, t_vec *v);
 t_vec				*ft_vecmat(t_vec *v, t_mat *m);
-t_mat				*ft_vectprod(t_vec *v1, t_vec *v2);
+t_mat				*ft_vectprod(t_vec *v1, t_vec *v2, t_mat *dest);
 t_mat				*ft_veccmat(t_vec *v);
+
+/*
+ * Transformation matrices
+ */
+
 t_mat				*ft_tmat(t_vec *v);
 t_mat				*ft_smat(t_vec *v);
+t_mat				*ft_rmatx(double a);
+t_mat				*ft_rmaty(double a);
+t_mat				*ft_rmatz(double a);
+t_mat				*ft_rmat2d(double a);
+t_mat				*ft_rmat3d(t_vec *v, double a);
 
 #endif

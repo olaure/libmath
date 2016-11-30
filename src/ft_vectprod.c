@@ -6,7 +6,7 @@
 /*   By: olaurent <olaurent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/12 12:13:37 by olaurent          #+#    #+#             */
-/*   Updated: 2016/09/12 12:16:59 by olaurent         ###   ########.fr       */
+/*   Updated: 2016/11/30 18:25:40 by olaurent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ t_mat		*ft_vectprod(t_vec *v1, t_vec *v2)
 	{
 		j = -1;
 		while (++j < v2->d)
-			m->m[i][j] = v1[i] * v2[j];
+			m->m[i][j] = v1->v[i] * v2->v[j];
 	}
 	return (m);
 }

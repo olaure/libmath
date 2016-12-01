@@ -6,7 +6,7 @@
 /*   By: olaurent <olaurent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/10 17:21:20 by olaurent          #+#    #+#             */
-/*   Updated: 2016/09/10 18:12:51 by olaurent         ###   ########.fr       */
+/*   Updated: 2016/12/01 14:41:23 by olaurent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ double	ft_vecnorm(t_vec *v)
 
 	norm = 0.0;
 	i = -1;
-	while (++i < v->d && norm > 0.0)
+	while (++i < v->d && norm >= 0.0)
 		norm += v->v[i] * v->v[i];
 	if (norm < 0.0)
 		return (0.0 / 0.0);

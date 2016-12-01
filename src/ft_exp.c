@@ -6,12 +6,11 @@
 /*   By: olaurent <olaurent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/12 17:35:01 by olaurent          #+#    #+#             */
-/*   Updated: 2016/09/14 12:14:27 by olaurent         ###   ########.fr       */
+/*   Updated: 2016/12/01 17:15:55 by olaurent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_math.h"
-
 
 double		ft_exp(double x)
 {

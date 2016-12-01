@@ -6,7 +6,7 @@
 /*   By: olaurent <olaurent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/12 11:49:55 by olaurent          #+#    #+#             */
-/*   Updated: 2016/12/01 15:22:28 by olaurent         ###   ########.fr       */
+/*   Updated: 2016/12/01 16:05:48 by olaurent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ t_mat		*ft_rmat3d(t_vec *v, double a)
 	if (!(mr = ft_matid(3, NULL)))
 		return (NULL);
 	ft_matmul(mr, ft_cos(a), mr);
-	if (!(tmpv = ft_vecunit(v)))
+	if (!(tmpv = ft_vecunit(v, NULL)))
 		return (NULL);
 	if (!(tmpm = ft_veccmat(tmpv)))
 		return (NULL);

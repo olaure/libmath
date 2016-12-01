@@ -6,7 +6,7 @@
 /*   By: olaurent <olaurent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/11 11:03:33 by olaurent          #+#    #+#             */
-/*   Updated: 2016/09/11 11:03:34 by olaurent         ###   ########.fr       */
+/*   Updated: 2016/12/01 16:03:01 by olaurent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,14 @@
 ** This applies a function with a single parameter to every element
 */
 
-t_vec	*ft_vecmap(t_vec *v, double (*f)(double el))
+t_vec	*ft_vecmap(t_vec *v, double (*f)(double el), t_vec *dst)
 {
 	t_vec	*vr;
 	int		i;
 
-	if (!(vr = ft_newvec(v->d)))
+	if (dst && dst->d == v->d)
+		vr = dst;
+	else if (!(vr = ft_newvec(v->d)))
 		return (NULL);
 	i = -1;
 	while (++i < v->d)

@@ -6,7 +6,7 @@
 /*   By: olaurent <olaurent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/11 12:54:01 by olaurent          #+#    #+#             */
-/*   Updated: 2016/12/01 13:46:56 by olaurent         ###   ########.fr       */
+/*   Updated: 2016/12/01 17:36:18 by olaurent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,16 @@
 ** The vector's coordinates are the scaling parameters
 */
 
-t_mat		*ft_smat(t_vec *v)
+t_mat		*ft_smat(t_vec *v, t_mat *dst)
 {
 	t_mat	*m;
 	int		i;
 	int		d;
 
 	d = v->d;
-	if (!(m = ft_matid(d, 0)))
+	if (dst && dst->l == d && dst->c == d)
+		m = ft_matid(d, dst);
+	else if (!(m = ft_matid(d, 0)))
 		return (NULL);
 	i = -1;
 	while (++i < d - 1)

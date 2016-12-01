@@ -57,5 +57,5 @@ It includes
 
 What should evolve in the next future :
 - addition of mathematical functions
-- addition of neurons nets specific functions
+- addition of neural nets specific functions
 

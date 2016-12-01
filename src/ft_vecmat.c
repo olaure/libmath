@@ -6,7 +6,7 @@
 /*   By: olaurent <olaurent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/10 15:57:08 by olaurent          #+#    #+#             */
-/*   Updated: 2016/12/01 16:50:20 by olaurent         ###   ########.fr       */
+/*   Updated: 2016/12/01 17:29:45 by olaurent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,7 @@ t_vec	*ft_vecmat(t_vec *v, t_mat *m, t_vec *dst)
 	}
 	if (dst && dst->d == res->d)
 	{
-		while (i--)
-			dst->v[i] = res->v[i];
+		ft_veccpy(res, dst);
 		ft_delvec(&res);
 		return (dst);
 	}

@@ -6,7 +6,7 @@
 /*   By: olaurent <olaurent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/13 15:11:06 by olaurent          #+#    #+#             */
-/*   Updated: 2016/09/13 15:15:52 by olaurent         ###   ########.fr       */
+/*   Updated: 2016/12/01 14:37:47 by olaurent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,6 @@ t_vec				*ft_vecmapi(t_vec *v, double (*f)(double el, int i));
 double				ft_vecnorm(t_vec *v);
 t_vec				*ft_vecunit(t_vec *v);
 t_vec				*ft_hvec(double x, double y, double z);
+void				print_vec(t_vec *v);
 
 #endif

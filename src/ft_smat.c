@@ -6,14 +6,14 @@
 /*   By: olaurent <olaurent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/11 12:54:01 by olaurent          #+#    #+#             */
-/*   Updated: 2016/09/13 12:56:49 by olaurent         ###   ########.fr       */
+/*   Updated: 2016/12/01 13:46:56 by olaurent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_math.h"
 
 /*
-** This outputs the scaling matrix
+** This outputs the scaling matrix in homogeneous coordinates
 ** The vector's coordinates are the scaling parameters
 */
 

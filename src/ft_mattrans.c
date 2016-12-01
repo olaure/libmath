@@ -6,7 +6,7 @@
 /*   By: olaurent <olaurent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/11 11:03:12 by olaurent          #+#    #+#             */
-/*   Updated: 2016/12/01 13:43:18 by olaurent         ###   ########.fr       */
+/*   Updated: 2016/12/01 17:11:37 by olaurent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,12 @@
 ** calculates the transposed matrix
 */
 
-t_mat		*ft_mattrans(t_mat *m, t_mat *dest)
+t_mat		*ft_mattrans(t_mat *m, t_mat *dst)
 {
 	int		i;
 	int		j;
 	t_mat	*mr;
 
-	if (dest && !(dest->l == m->l && dest->c == m->c))
-		return (NULL);
 	if (!(mr = ft_newmat(m->l, m->c)))
 		return (NULL);
 	i = -1;
@@ -33,9 +31,11 @@ t_mat		*ft_mattrans(t_mat *m, t_mat *dest)
 		while (++j < m->c)
 			mr->m[i][j] = m->m[j][i];
 	}
-	if (!dest)
-		return (mr);
-	ft_matcpy(mr, dest);
-	ft_delmat(&mr);
-	return (dest);
+	if (dst && dst->l == m->l && dst->c == m->c)
+	{
+		ft_matcpy(mr, dst);
+		ft_delmat(&mr);
+		return (dst);
+	}
+	return (mr);
 }

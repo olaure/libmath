@@ -6,29 +6,27 @@
 /*   By: olaurent <olaurent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/10 09:56:48 by olaurent          #+#    #+#             */
-/*   Updated: 2016/09/13 13:22:58 by olaurent         ###   ########.fr       */
+/*   Updated: 2016/12/01 17:14:41 by olaurent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_math.h"
 
 /*
-** This calculates the matrix product between m1 and m2
-** It stores the result in a new matrix
-** If the product cannot be done because of size incompatiblity
+** This calculates the matrix product between m1 and m2 and outputs it
+** If dst exists and is of proper dimensions it will be set
+** Otherwise or if the product cannot be done because of size incompatiblity
 ** or because the malloc failed it returns NULL
 */
 
-t_mat		*ft_matprod(t_mat *m1, t_mat *m2, t_mat *dest)
+t_mat		*ft_matprod(t_mat *m1, t_mat *m2, t_mat *dst)
 {
 	t_mat	*mp;
 	int		i;
 	int		j;
 	int		k;
 
-	if (m1->c != m2->l || (dest && !(dest->l == m1->l && dest->c == m2->c)))
-		return (NULL);
-	if (!(mp = ft_newmat(m1->l, m2->c)))
+	if (m1->c != m2->l || !(mp = ft_newmat(m1->l, m2->c)))
 		return (NULL);
 	i = -1;
 	while (++i < mp->l)
@@ -41,9 +39,11 @@ t_mat		*ft_matprod(t_mat *m1, t_mat *m2, t_mat *dest)
 				mp->m[i][k] += m1->m[i][j] * m2->m[j][k];
 		}
 	}
-	if (!dest)
-		return (mp);
-	ft_matcpy(mp, dest);
-	ft_delmat(&mp);
-	return (dest);
+	if (dst && dst->l == m1->l && dst->c == m2->c)
+	{
+		ft_matcpy(mp, dst);
+		ft_delmat(&mp);
+		return (dst);
+	}
+	return (mp);
 }

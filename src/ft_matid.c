@@ -6,31 +6,37 @@
 /*   By: olaurent <olaurent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/10 12:42:20 by olaurent          #+#    #+#             */
-/*   Updated: 2016/09/13 11:48:40 by olaurent         ###   ########.fr       */
+/*   Updated: 2016/12/01 17:07:17 by olaurent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_math.h"
 
 /*
-** This creates an identity matrix of size d and outputs it to dest
+** This creates an identity matrix of size d and outputs it
 ** It will fail and return NULL if d < 1 or malloc error
-** If dest is of wrong dimensions it will fail
-** If dest is NULL a matrix is created
+** If dst exists and is of the proper size it will be set
+** Otherwise a matrix is created
 */
 
-t_mat	*ft_matid(int d, t_mat *dest)
+t_mat	*ft_matid(int d, t_mat *dst)
 {
 	int		i;
+	int		j;
+	t_mat	*res;
 
 	if (d < 1)
 		return (NULL);
-	if (dest && !(dest->l == d && dest->c == d))
-		return (NULL);
-	if (!dest && !(dest = ft_newmat(d, d)))
+	if (dst && dst->l == d && dst->c == d)
+		res = dst;
+	else if (!(res = ft_newmat(d, d)))
 		return (NULL);
 	i = -1;
 	while (++i < d)
-		dest->m[i][i] = 1;
-	return (dest);
+	{
+		j = -1;
+		while (++j < d)
+			res->m[i][j] = (i == j);
+	}
+	return (res);
 }

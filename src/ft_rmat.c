@@ -6,7 +6,7 @@
 /*   By: olaurent <olaurent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/12 11:49:55 by olaurent          #+#    #+#             */
-/*   Updated: 2016/12/01 16:05:48 by olaurent         ###   ########.fr       */
+/*   Updated: 2016/12/01 17:00:55 by olaurent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,16 +76,22 @@ t_mat		*ft_rmat3d(t_vec *v, double a)
 
 	if (!(mr = ft_matid(3, NULL)))
 		return (NULL);
-	ft_matmul(mr, ft_cos(a), mr);
+	if (!ft_matmul(mr, ft_cos(a), mr))
+		return (NULL);
 	if (!(tmpv = ft_vecunit(v, NULL)))
 		return (NULL);
-	if (!(tmpm = ft_veccmat(tmpv)))
+	if (!(tmpm = ft_veccmat(tmpv, NULL)))
 		return (NULL);
-	ft_matmul(tmpm, ft_sin(a), tmpm);
-	ft_matadd(mr, tmpm, mr);
-	ft_vectprod(tmpv, tmpv, tmpm);
-	ft_matmul(tmpm, 1 - ft_cos(a), tmpm);
-	ft_matadd(mr, tmpm, mr);
+	if (!ft_matmul(tmpm, ft_sin(a), tmpm))
+		return (NULL);
+	if (!ft_matadd(mr, tmpm, mr))
+		return (NULL);
+	if (!ft_vectprod(tmpv, tmpv, tmpm))
+		return (NULL);
+	if (!ft_matmul(tmpm, 1 - ft_cos(a), tmpm))
+		return (NULL);
+	if (!ft_matadd(mr, tmpm, mr))
+		return (NULL);
 	return (mr);
 }
 

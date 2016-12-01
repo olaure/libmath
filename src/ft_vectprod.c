@@ -6,7 +6,7 @@
 /*   By: olaurent <olaurent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/12 12:13:37 by olaurent          #+#    #+#             */
-/*   Updated: 2016/11/30 19:25:36 by olaurent         ###   ########.fr       */
+/*   Updated: 2016/12/01 17:02:13 by olaurent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,14 @@
 ** The return value is a matrix
 */
 
-t_mat		*ft_vectprod(t_vec *v1, t_vec *v2, t_mat *dest)
+t_mat		*ft_vectprod(t_vec *v1, t_vec *v2, t_mat *dst)
 {
 	t_mat	*m;
 	int		i;
 	int		j;
 
-	if (dest)
-		m = dest;
+	if (dst && dst->l == v1->d && dst->c == v2->d)
+		m = dst;
 	else if (!(m = ft_newmat(v1->d, v2->d)))
 		return (NULL);
 	i = -1;

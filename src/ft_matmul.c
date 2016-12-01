@@ -6,22 +6,26 @@
 /*   By: olaurent <olaurent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/11 11:03:00 by olaurent          #+#    #+#             */
-/*   Updated: 2016/12/01 14:23:33 by olaurent         ###   ########.fr       */
+/*   Updated: 2016/12/01 17:00:09 by olaurent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_math.h"
 
-t_mat		*ft_matmul(t_mat *m, double c, t_mat *dest)
+/*
+** Multiplies all indexes of a matrix by a constant.
+*/
+
+t_mat		*ft_matmul(t_mat *m, double c, t_mat *dst)
 {
 	int		i;
 	int		j;
 	t_mat	*mr;
 
-	if (dest && !(dest->l == m->l && dest->c == m->c))
+	if (!m)
 		return (NULL);
-	if (dest)
-		mr = dest;
+	if (dst && dst->l == m->l && dst->c == m->c)
+		mr = dst;
 	else if (!(mr = ft_newmat(m->l, m->c)))
 		return (NULL);
 	i = -1;

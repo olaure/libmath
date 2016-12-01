@@ -6,7 +6,7 @@
 /*   By: olaurent <olaurent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/10 14:57:12 by olaurent          #+#    #+#             */
-/*   Updated: 2016/09/10 15:20:46 by olaurent         ###   ########.fr       */
+/*   Updated: 2016/12/01 16:50:35 by olaurent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 ** This calculates the action of a matrix on a vector
 */
 
-t_vec	*ft_matvec(t_mat *m, t_vec *v)
+t_vec	*ft_matvec(t_mat *m, t_vec *v, t_vec *dst)
 {
 	t_vec	*res;
 	int		i;
@@ -32,6 +32,13 @@ t_vec	*ft_matvec(t_mat *m, t_vec *v)
 		j = -1;
 		while (++j < v->d)
 			res->v[i] += m->m[i][j] * v->v[j];
+	}
+	if (dst && dst->d == res->d)
+	{
+		while (i--)
+			dst->v[i] = res->v[i];
+		ft_delvec(&res);
+		return (dst);
 	}
 	return (res);
 }

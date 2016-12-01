@@ -6,7 +6,7 @@
 /*   By: olaurent <olaurent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/13 15:13:18 by olaurent          #+#    #+#             */
-/*   Updated: 2016/12/01 14:36:10 by olaurent         ###   ########.fr       */
+/*   Updated: 2016/12/01 16:52:48 by olaurent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,10 @@ double				ft_matdet(t_mat *m);
 ** Matrix and vector cross section
 */
 
-t_vec				*ft_matvec(t_mat *m, t_vec *v);
-t_vec				*ft_vecmat(t_vec *v, t_mat *m);
+t_vec				*ft_matvec(t_mat *m, t_vec *v, t_vec *dst);
+t_vec				*ft_vecmat(t_vec *v, t_mat *m, t_vec *dst);
 t_mat				*ft_vectprod(t_vec *v1, t_vec *v2, t_mat *dest);
-t_mat				*ft_veccmat(t_vec *v);
+t_mat				*ft_veccmat(t_vec *v, t_mat *dst);
 
 /*
 ** Transformation matrices

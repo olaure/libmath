@@ -6,7 +6,7 @@
 /*   By: olaurent <olaurent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/12 12:20:00 by olaurent          #+#    #+#             */
-/*   Updated: 2016/12/01 14:55:16 by olaurent         ###   ########.fr       */
+/*   Updated: 2016/12/01 16:52:33 by olaurent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,15 @@
 ** Emjk aj = Mmk
 */
 
-t_mat		*ft_veccmat(t_vec *v)
+t_mat		*ft_veccmat(t_vec *v, t_mat *dst)
 {
 	t_mat	*m;
 
 	if (v->d != 3)
 		return (NULL);
-	if (!(m = ft_newmat(v->d, v->d)))
+	if (dst && dst->l == v->d  && dst->c == v->d)
+		m = dst;
+	else if (!(m = ft_newmat(v->d, v->d)))
 		return (NULL);
 	m->m[0][0] = 0;
 	m->m[0][1] = -v->v[2];

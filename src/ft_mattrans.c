@@ -6,11 +6,15 @@
 /*   By: olaurent <olaurent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/11 11:03:12 by olaurent          #+#    #+#             */
-/*   Updated: 2016/09/13 12:54:43 by olaurent         ###   ########.fr       */
+/*   Updated: 2016/12/01 13:43:18 by olaurent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_math.h"
+
+/*
+** calculates the transposed matrix
+*/
 
 t_mat		*ft_mattrans(t_mat *m, t_mat *dest)
 {

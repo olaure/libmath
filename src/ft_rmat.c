@@ -6,7 +6,7 @@
 /*   By: olaurent <olaurent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/12 11:49:55 by olaurent          #+#    #+#             */
-/*   Updated: 2016/11/30 19:31:56 by olaurent         ###   ########.fr       */
+/*   Updated: 2016/12/01 15:22:28 by olaurent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ t_mat		*ft_rmatz(double a)
 ** Generates the 3d rotation matrix with angle a around vector v
 */
 
+#include <stdio.h>
 t_mat		*ft_rmat3d(t_vec *v, double a)
 {
 	t_mat	*mr;

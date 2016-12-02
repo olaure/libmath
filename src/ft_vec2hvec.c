@@ -1,34 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tmat.c                                          :+:      :+:    :+:   */
+/*   ft_vec2hvec.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: olaurent <olaurent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/09/11 12:47:30 by olaurent          #+#    #+#             */
-/*   Updated: 2016/12/02 18:34:03 by olaurent         ###   ########.fr       */
+/*   Created: 2016/12/02 18:13:03 by olaurent          #+#    #+#             */
+/*   Updated: 2016/12/02 18:21:12 by olaurent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_math.h"
 
-/*
-** This outputs the translation matrix associated with the vector
-*/
-
-t_mat		*ft_tmat(t_vec *v, t_mat *dst)
+t_vec	*ft_vec2hvec(t_vec *v, t_vec *dst)
 {
-	t_mat	*m;
+	t_vec	*vr;
 	int		i;
-	int		d;
 
-	d = v->d;
-	if (dst && dst->l == d && dst->c == d)
-		m = ft_matid(d, dst);
-	else if (!(m = ft_matid(d, 0)))
+	if (!v)
 		return (NULL);
-	i = -1;
-	while (++i < d)
-		m->m[i][d - 1] = v->v[i];
-	return (m);
+	if (dst && dst->d == 4)
+		vr = dst;
+	else if (!(vr = ft_newvec(4)))
+		return (NULL);
+	i = 0;
+	while (i++ < v->d)
+		vr->v[i - 1] = v->v[i - 1];
+	while (i < vr->d - 1)
+		vr->v[i++] = 0.0;
+	vr->v[i] = 1.0;
+	return (vr);
 }

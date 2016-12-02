@@ -1,34 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tmat.c                                          :+:      :+:    :+:   */
+/*   ft_mat2hmat.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: olaurent <olaurent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/09/11 12:47:30 by olaurent          #+#    #+#             */
-/*   Updated: 2016/12/02 18:34:03 by olaurent         ###   ########.fr       */
+/*   Created: 2016/12/02 18:21:52 by olaurent          #+#    #+#             */
+/*   Updated: 2016/12/02 18:38:27 by olaurent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_math.h"
 
-/*
-** This outputs the translation matrix associated with the vector
-*/
-
-t_mat		*ft_tmat(t_vec *v, t_mat *dst)
+t_mat		*ft_mat2hmat(t_mat *m, t_mat *dst)
 {
-	t_mat	*m;
+	t_mat	*mr;
 	int		i;
-	int		d;
+	int		j;
 
-	d = v->d;
-	if (dst && dst->l == d && dst->c == d)
-		m = ft_matid(d, dst);
-	else if (!(m = ft_matid(d, 0)))
+	if (!m)
+		return (NULL);
+	if (dst && dst->l == 4 && dst->c == 4)
+		mr = dst;
+	else if(!(mr = ft_newmat(4, 4)))
 		return (NULL);
 	i = -1;
-	while (++i < d)
-		m->m[i][d - 1] = v->v[i];
-	return (m);
+	while (++i < m->l)
+	{
+		j = -1;
+		while (++j < m->c)
+			mr->m[i][j] = m->m[i][j];
+	}
+	mr->m[3][3] = 1;
+	return (mr);
 }

@@ -6,7 +6,7 @@
 #    By: olaurent <olaurent@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/09/10 09:46:10 by olaurent          #+#    #+#              #
-#    Updated: 2016/12/01 17:46:23 by olaurent         ###   ########.fr        #
+#    Updated: 2016/12/02 18:38:02 by olaurent         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,9 +25,10 @@ SRC = ft_newmat.c ft_delmat.c ft_matdup.c ft_matcpy.c \
 	  ft_vecmap.c ft_vecmapi.c \
 	  ft_vecscp.c ft_veccrp.c ft_matvec.c ft_vecmat.c \
 	  ft_vectprod.c ft_veccmat.c \
-	  ft_sqrt.c ft_pow.c ft_sin.c ft_exp.c ft_sigmoid.c \
+	  ft_sqrt.c ft_pow.c ft_sin.c ft_tan.c ft_exp.c ft_sigmoid.c \
 	  ft_vecnorm.c ft_vecunit.c \
-	  ft_hvec.c ft_tmat.c ft_smat.c ft_rmat.c ft_rmat3d.c \
+	  ft_hvec.c ft_vec2hvec.c ft_mat2hmat.c \
+	  ft_tmat.c ft_smat.c ft_rmat.c ft_rmat3d.c ft_matproj.c \
 	  print_vec.c
 
 SRCDIR = src

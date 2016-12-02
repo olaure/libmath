@@ -6,7 +6,7 @@
 /*   By: olaurent <olaurent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/13 15:13:18 by olaurent          #+#    #+#             */
-/*   Updated: 2016/12/01 17:50:42 by olaurent         ###   ########.fr       */
+/*   Updated: 2016/12/02 18:37:45 by olaurent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,8 @@ t_mat				*ft_rmatz(double a, t_mat *dst);
 t_mat				*ft_rmat2d(double a);
 t_mat				*ft_rmat3d(t_vec *v, double a);
 t_mat				*ft_rmatrpy(double r, double p, double y, t_mat *dst);
+t_mat				*ft_matproj(double far, double near, double fov,
+						double ratio);
+t_mat				*ft_mat2hmat(t_mat *m, t_mat *dst);
 
 #endif
